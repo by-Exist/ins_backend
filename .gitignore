@@ -2,6 +2,7 @@ _env/
 .vscode/
 _media/
 _static/
+_snippets/
 __pycache__/
 
 db.sqlite3

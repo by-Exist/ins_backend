@@ -21,15 +21,23 @@ DEBUG = True
 # Application definition
 
 INSTALLED_APPS = [
+    # Django apps
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # Third apps
+    "rest_framework",
+    "corsheaders",
+    # Local apps
+    "accountapp",
+    "instagramapp",
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -90,6 +98,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+AUTH_USER_MODEL = "accountapp.User"
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -113,3 +124,11 @@ STATICFILES_DIRS = [BASE_DIR / "backend" / "_static"]  # add path for static-fil
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "backend" / "_media"  # media file save and find path
+
+
+# rest_framework.settings를 통해 기본 적용 설정을 확인할 수 있다.
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
+    ]
+}
