@@ -1,3 +1,4 @@
+import datetime
 from pathlib import Path
 import environ
 
@@ -130,5 +131,21 @@ MEDIA_ROOT = BASE_DIR / "backend" / "_media"  # media file save and find path
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",
-    ]
+    ],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework_jwt.authentication.JSONWebTokenAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+    ],
 }
+
+# djangorestframework-jwt 설정
+JWT_AUTH = {
+    "JWT_SECRET_KEY": env("JWT_SECRET_KEY"),
+    "JWT_ALGORITHM": "HS256",
+    "JWT_ALLOW_REFRESH": True,
+    "JWT_EXPIRATION_DELTA": datetime.timedelta(seconds=300),
+    "JWT_REFRESH_EXPIRATION_DELTA": datetime.timedelta(days=7),
+}
+
+# Token 로그인 인증 실패 시 반환하는 형식이 왜 text 형식일까.
+# 이거 바꾸는 방법 없나?

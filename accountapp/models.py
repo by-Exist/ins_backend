@@ -11,13 +11,15 @@ class User(AbstractUser):
     follower_set = models.ManyToManyField(
         "self",
         blank=True,
-        verbose_name="팔로워",
+        verbose_name="나를 팔로우한 사람들",
     )
     following_set = models.ManyToManyField(
         "self",
         blank=True,
-        verbose_name="팔로잉",
+        verbose_name="내가 팔로우한 사람들",
     )
+
+    nickname = models.CharField("닉네임", max_length=20, unique=True)
 
     website_url = models.URLField("웹사이트", blank=True)
     bio = models.TextField("sns 정보", blank=True)
@@ -33,8 +35,9 @@ class User(AbstractUser):
         blank=True,
         choices=GenderChoices.choices,
     )
-    
+
     avatar = models.ImageField(
+        "아바타",
         blank=True,
-        upload_to="accounts/avatar/%Y/%m/%d"
+        upload_to="accounts/avatar/%Y/%m/%d",
     )

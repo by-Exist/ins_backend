@@ -15,6 +15,7 @@
     Pillow==8.1.0
     djangorestframework
     django-cors-headers
+    djangorestframework-jwt
     ```
 
 - prod
@@ -25,6 +26,7 @@
     Pillow==8.1.0
     djangorestframework
     django-cors-headers
+    djangorestframework-jwt
     ```
 
 ## DB
@@ -33,3 +35,9 @@
 
 - ./_erd/.vuerd.json을 vscode 익스텐션 "ERD Editor"를 활용하여 open
 - 사진...
+
+## 여담
+
+- 시간을 다루는 라이브러리를 정해서 치트시트를 따로 마련해야겠다.
+- django-pydenticon은 사용하지 않도록 한다. avatar가 없을 때 대체 이미지를 사용하도록 지정하는 것은 백엔드의 역할보다는 프론트엔드의 역할이라고 생각되기 때문이다.
+- serializers.SerializerMethodField를 사용해서 follow중인지 아닌지를 판단하는 로직을 삽입해보았다. 마음에 든다.
