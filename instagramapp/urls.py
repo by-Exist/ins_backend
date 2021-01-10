@@ -1,9 +1,12 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import PostViewSet
+from . import views
 
 router = DefaultRouter()
-router.register("posts", PostViewSet)
+router.register("posts", views.PostViewSet)
+router.register(
+    r"posts/(?P<post_pk>\d+)/comments", views.CommentViewSet, basename="Comment"
+)
 
 
 urlpatterns = [
