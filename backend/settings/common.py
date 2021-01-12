@@ -3,24 +3,10 @@ from pathlib import Path
 import environ
 
 
-env = environ.Env()
-environ.Env.read_env()
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("DJANGO_SECRET_KEY")
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-
 # Application definition
-
 INSTALLED_APPS = [
     # Django apps
     "django.contrib.admin",
@@ -120,12 +106,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = "/static/"
-STATIC_ROOT = BASE_DIR / "staticfiles"  # collectstatic path
-STATICFILES_DIRS = [BASE_DIR / "backend" / "_static"]  # add path for static-file-finder
-
 MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "backend" / "_media"  # media file save and find path
 
+STATIC_ROOT = BASE_DIR / "staticfiles"  # collectstatic path
 
 # rest_framework.settings를 통해 기본 적용 설정을 확인할 수 있다.
 REST_FRAMEWORK = {
@@ -137,15 +120,3 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
     ],
 }
-
-# djangorestframework-jwt 설정
-JWT_AUTH = {
-    "JWT_SECRET_KEY": env("JWT_SECRET_KEY"),
-    "JWT_ALGORITHM": "HS256",
-    "JWT_ALLOW_REFRESH": True,
-    "JWT_EXPIRATION_DELTA": datetime.timedelta(seconds=300),
-    "JWT_REFRESH_EXPIRATION_DELTA": datetime.timedelta(days=7),
-}
-
-# Token 로그인 인증 실패 시 반환하는 형식이 왜 text 형식일까.
-# 이거 바꾸는 방법 없나?

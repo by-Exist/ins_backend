@@ -1,0 +1,26 @@
+# git
+.git
+.gitignore
+
+# docker
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# django
+db.sqlite3
+*/*/.env
+*/_media/
+*/_static/
+
+# python
+_env/
+*/__pycache__/
+
+# vsc
+.vscode/
+
+# other
+_snippets/
+_erd/
+README.md
