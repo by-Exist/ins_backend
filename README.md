@@ -47,27 +47,27 @@
 
 ### 1.4.1. E-R Model 설계
 
-- ![E-R Model](_image\E-R_Model\e-r_model.png)
+- ![E-R Model](./_image/E-R_Model/e-r_model.png)
 
 ## 1.5. [ Local apps ]
 
 ### 1.5.1. accountapp
 
 - 모델
-  ![model](_image\accountapp\user_model.png)
+  ![model](./_image/accountapp/user_view.png)
 - 뷰
-  ![view](_image\accountapp\user_view.png)
+  ![view](./_image/accountapp/user_view.png)
 - 시리얼라이저
-  ![serializer](_image\accountapp\user_serializer.png)
+  ![serializer](._image/accountapp/user_serializer.png)
 
 ### 1.5.2. instagramapp
 
 - 모델
-  ![model](_image\instagramapp\ins_model.png)
+  ![model](./_image/instagramapp/ins_model.png)
 - 뷰
-  ![view](_image\instagramapp\ins_view.png)
+  ![view](./_image/instagramapp/ins_view.png)
 - 시리얼라이저
-  ![serializer](_image\instagramapp\ins_serializer.png)
+  ![serializer](./_image/instagramapp/ins_serializer.png)
 
 ## 1.6. [ 여담 ]
 
